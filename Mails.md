@@ -2,7 +2,7 @@
 title: Mails servers and tips
 description: 
 published: true
-date: 2022-05-21T14:20:05.820Z
+date: 2022-05-21T14:20:24.993Z
 tags: mails
 editor: markdown
 dateCreated: 2022-04-23T18:50:20.426Z
@@ -14,7 +14,7 @@ dateCreated: 2022-04-23T18:50:20.426Z
 - [Installation guide *Learn to install PMG*](/Antispams/PMG/install)
 - [Deeper configuration *Usefull PMG tweaks*](/Antispams/PMG/conf)
 - [Troubleshooting *Don't smash your head on the desk yet*](/Antispams/PMG/troubleshooting)
-
+{.links-list}
 # Mails servers
 
 ## Zimbra
