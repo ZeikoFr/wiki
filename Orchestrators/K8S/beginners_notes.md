@@ -107,3 +107,42 @@ DB are often outside of k8s cluter
 
 # K8S architecture
 
+## Nodes processes
+
+Each nodes has multiple pods on it
+
+**3 processes must be installed on every node**
+
+- *container runtime* (docker, podman...) 
+
+- The process that schedule the pods and containers is *Kubelet*
+
+Communication between nodes is done via services
+
+- *Kube proxy* forwards the request
+
+## How do you interact with the cluster ?
+
+All managing process are done by MasterNodes
+
+** 4 processes on master nodes**
+
+- *Api Server* Cluster Gateway, update query, act as gatekeeper for auth
+
+Flow : request => Api server => Validation => other process
+
+- *Scheduler* 
+
+Flow : Schedfule new pod => Api Server => Scheduler 
+
+The scheduler will check the ressource needed for the pod, then decide which node will be used
+
+- *Controller manager* Detect state changes in cluster (dead pod and such)
+
+Flow : Controller Manager => scheduler => kubelet
+
+- *etcd* cluster brain, cluster changes get stored in the key value store
+
+**Application data are NOT stored in etcd**
+
+Usually K8S cluster have multiple master with api server load balenced
