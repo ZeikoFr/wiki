@@ -13,6 +13,7 @@ dateCreated: 2022-05-21T14:53:40.117Z
 ## K8S
 
 - [Beginners notes](/Orchestrators/K8S/beginners_notes)
+- [Minikube](/Orchestrators/K8S/minikube)
 
 ## Swarm
 
