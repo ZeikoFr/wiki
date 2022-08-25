@@ -2,7 +2,7 @@
 title: Installation of Zimbra server
 description: How to install zimbra server
 published: true
-date: 2022-05-21T13:54:33.832Z
+date: 2022-05-21T13:54:45.084Z
 tags: zimbra, installation
 editor: markdown
 dateCreated: 2022-05-21T13:54:33.832Z

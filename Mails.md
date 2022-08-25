@@ -2,7 +2,7 @@
 title: Mails servers and tips
 description: 
 published: true
-date: 2022-05-21T14:20:24.993Z
+date: 2022-08-25T15:05:33.332Z
 tags: mails
 editor: markdown
 dateCreated: 2022-04-23T18:50:20.426Z

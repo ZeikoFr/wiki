@@ -2,7 +2,7 @@
 title: Windows
 description: Main windows page
 published: true
-date: 2022-05-21T14:56:39.108Z
+date: 2022-05-21T14:56:50.357Z
 tags: windows
 editor: markdown
 dateCreated: 2022-05-21T14:56:39.107Z

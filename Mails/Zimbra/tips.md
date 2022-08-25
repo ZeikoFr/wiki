@@ -2,7 +2,7 @@
 title: Zimbra Tips & Treaks
 description: Different usefull to have command and explanation for Zimbra mail server
 published: true
-date: 2022-06-01T19:34:34.019Z
+date: 2022-06-01T20:10:20.841Z
 tags: zimbra search, zimbra tips
 editor: markdown
 dateCreated: 2022-06-01T19:31:27.012Z

@@ -1,3 +1,13 @@
+---
+title: kubectl
+description: 
+published: true
+date: 2022-08-07T19:59:51.544Z
+tags: 
+editor: markdown
+dateCreated: 2022-08-07T19:59:39.352Z
+---
+
 # Kubectl notes
 
 ## Basics commands
