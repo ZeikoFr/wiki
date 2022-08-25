@@ -22,3 +22,6 @@ dateCreated: 2022-04-23T18:50:20.426Z
 - [Deeper configuration *Some tweaks to apply to improve experience and security*](/Mails/Zimbra/conf)
 - [Troubleshooting *Don't smash your head on the desk yet*](/Mails/Zimbra/troubleshooting)
 {.links-list}
+# Mails security
+- [SPF and DKIM *Proper SPF and DKIM setup*](/Mails/Security/spf-dkim)
+{.links-list}
