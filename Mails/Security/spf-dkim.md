@@ -37,6 +37,8 @@ The symbol before `all` have a specific meaning :
 
 So far our record contain 4 IPv4 and 1 IPv6.
 
+### Factoring SPF records
+
 But since we send and receive email from the same server we can simplify our record by using the "mx" value.
 
  - Previous record : `v=spf1 ip4:60.100.200.10 ip4:60.100.200.20 ip4:60.100.200.21 ip4:180.210.23.4 ipv6:2607:DA00:0401::7777 ~all`
@@ -49,6 +51,8 @@ In the future if we add other MX records we do not have to modify SPF record has
 > In case the receiving server DOES NOT send email (an antispam appliance or else), then do not add MX in the SPF record.
 {.is-warning}
 
+
+
 Similar to the `mx` value, the `a` value allow us to remove the IP of our web server to use the DNS A record.
 
 >The `a` value only apply to the random.org A and AAAA records, not to other record like wiki.record.org
@@ -56,6 +60,8 @@ Similar to the `mx` value, the `a` value allow us to remove the IP of our web se
 
  - Previous record : `v=spf1 mx ip4:60.100.200.20 ip4:60.100.200.21 ip4:180.210.23.4 ipv6:2607:DA00:0401::7777 ~all`
  - New record : `v=spf1 mx a ip4:60.100.200.21 ip4:180.210.23.4 ipv6:2607:DA00:0401::7777 ~all`
+
+
 
 But we also send email from wiki.random.org, and we don't want to modify SPF if we change the IP of the A record.
 
@@ -74,6 +80,8 @@ We can recursively allow the SPF of mailer.com in our SPF record :
 > Always check with your 3rd party what is the proper include to do.
 {.is-warning}
 
+
+
 And finally we can enforce our policy by switching from `~all` to `-all`.
 
 This is the "hard fail" which mean : Any mail that is NOT comming from the listed IP should be treated has Junk/Spam.
@@ -82,4 +90,17 @@ It is still up to the recepient to either follow or ignore the SPF record.
 
 To address this security problem a standard named DMARC is used.
 
+# SPF best practice
+
+ - Only 1 record per domain.
+ - No private ip in record.
+ - You can leverage DMARC rua report to get list of ip sending mail in your behalf.
+ - You can use `~` temporarly to get time to compile properly the full ip list.
+ - When using **include:** your `all` value take the priority, so if you have `-all` and the include use `?all` the enforced value in `-all`.
+ - Protect unused domain with empty SPF ! : `v=spf1 -all`.
+ - Avoid listing large block of IP in SPF
+ - Be careful about lookup limitation, only 10 lookups are allowed (a, mx, and include: are lookups)
+ - Be careful of length limits of SPF, no more than 255 characters
+  
 # DKIM
+
