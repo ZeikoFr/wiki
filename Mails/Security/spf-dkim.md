@@ -104,3 +104,38 @@ To address this security problem a standard named DMARC is used.
   
 # DKIM
 
+## What is DKIM
+
+## Create a DKIM key
+
+ - Create a pair of Pubkey/Privkey (Either with the solution provided by your mail server or by a simple open SSL command)
+ - Put the pubkey in a DNS record
+
+ Example : 
+   - For an RSA key `openssl genrsa -out private-rsa.key 2048 && openssl rsa -in private-rsa.key -pubout -out public-rsa.key`
+   - For an ed25519 key `openssl genpkey -algorithm ed25519 -out private-ed25519.pem && openssl pkey -in private-ed25519.pem -pubout -out private-ed25519.pem`
+
+Be carefull has ed25519 has not spread out for now, if possible use double signing (rsa+ed25519) to avoid trouble of server not checking ed25519.
+
+## Choose a selector
+
+The selector can be anything of your choice as long as it is permitted in DNS record.
+
+If it is automatically managed by your systems (from creation of the key to DNS setup), then the selector might be random value.
+
+If you manage the DNS record manually then you can implement a standard for your own domain, example <service-month-year> like : `mailchimp-08-2022._domainkey.random.org`
+
+Always ask the third-party if they're expecting a specific selector.
+
+The critical thing is to have unique value for each selector, so when you rotate the mailchimp key, do not edit the current record. Instead create a new one following you standard, with the new key.
+
+Then after a week (DNS is slow !!) Remove the old record.
+
+## DKIM Best Practices
+
+ - Use DKIM every server that send email from your domain name.
+ - For servers that do not support DKIM, relay outbound email to another server that support it and let this server send the mail.
+ - Verify your SPF after setting DKIM to be sure everything use DKIM.
+ - Rotate the DKIM key on a scheduled basis
+ - Make sure the DKIM private key is secure.
+ - Unique DKIM key on each server makes troubleshooting easier.
